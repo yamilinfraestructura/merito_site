@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { MobileNavbar } from './components/MobileNavbar'
 
 const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
@@ -63,8 +64,9 @@ const recognitionHighlights = [
 const partnerMarks = ['FF', 'INPI', 'AE', 'PM', 'RS']
 
 const ceremonyImages = [
-  'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1920&q=80',
-  'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=80',
+  '/banner1.png',
+  '/banner2.png',
+  '/banner3.png',
 ]
 
 const smoothScrollTo = (target: HTMLElement, duration = 1400) => {
@@ -88,29 +90,69 @@ const smoothScrollTo = (target: HTMLElement, duration = 1400) => {
 }
 
 function App() {
+  // Inicializar isMobile correctamente desde el inicio para evitar delay
   const [isCompactNav, setIsCompactNav] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const [activeImages, setActiveImages] = useState(recognitionHighlights.map(() => 0))
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [ceremonyImageIndex, setCeremonyImageIndex] = useState(0)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => {
+    // Inicializar correctamente desde el inicio, incluso en SSR
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768
+    }
+    return false
+  })
   const highlightRefs = useRef<(HTMLElement | null)[]>([])
   const swappedRef = useRef<boolean[]>(recognitionHighlights.map(() => false))
   const imageTimers = useRef<number[]>([])
   const ceremonyTimer = useRef<number | null>(null)
+  const observerRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
-    let observer: IntersectionObserver | null = null
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    // Verificar inmediatamente al montar
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  useEffect(() => {
+    if (isMobile) {
+      // En mobile, limpiar observer y resetear estado
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+        observerRef.current = null
+      }
+      setIsCompactNav(false)
+      return
+    }
+
+    // Limpiar observer anterior si existe
+    if (observerRef.current) {
+      observerRef.current.disconnect()
+      observerRef.current = null
+    }
+
     let timeoutId: number | null = null
 
     const setupObserver = () => {
       const trigger = document.getElementById('nav-trigger')
       if (!trigger) {
-        timeoutId = window.setTimeout(setupObserver, 100)
+        timeoutId = window.setTimeout(setupObserver, 50)
         return
       }
 
-      observer = new IntersectionObserver(
+      // Verificar estado inicial inmediatamente (importante para Firefox)
+      const rect = trigger.getBoundingClientRect()
+      const isTriggerVisible = rect.top < window.innerHeight - 80
+      setIsCompactNav(!isTriggerVisible)
+
+      // Crear y configurar observer
+      const observer = new IntersectionObserver(
         ([entry]) => {
           setIsCompactNav(!entry.isIntersecting)
         },
@@ -121,15 +163,40 @@ function App() {
       )
 
       observer.observe(trigger)
+      observerRef.current = observer
     }
 
-    setupObserver()
+    // Intentar setup inmediatamente, luego con timeout si es necesario
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      // DOM ya está listo
+      setupObserver()
+    } else {
+      // Esperar a que el DOM esté listo
+      const handleDOMReady = () => {
+        setupObserver()
+      }
+      document.addEventListener('DOMContentLoaded', handleDOMReady)
+      // También intentar inmediatamente por si acaso
+      setupObserver()
+      
+      return () => {
+        document.removeEventListener('DOMContentLoaded', handleDOMReady)
+        if (timeoutId) clearTimeout(timeoutId)
+        if (observerRef.current) {
+          observerRef.current.disconnect()
+          observerRef.current = null
+        }
+      }
+    }
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId)
-      if (observer) observer.disconnect()
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+        observerRef.current = null
+      }
     }
-  }, [])
+  }, [isMobile])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -192,7 +259,6 @@ function App() {
     href: string,
   ) => {
     event.preventDefault()
-    setIsMobileMenuOpen(false)
     const target = document.querySelector<HTMLElement>(href)
     if (!target) return
     smoothScrollTo(target, 1500)
@@ -200,23 +266,14 @@ function App() {
 
   return (
     <div className="site-shell">
-      <header className={`top-nav ${isCompactNav ? 'top-nav--compact' : ''}`}>
+      {/* Navbar Desktop - Solo visible en pantallas grandes */}
+      <header className={`top-nav top-nav--desktop ${isCompactNav ? 'top-nav--compact' : ''}`}>
         <div className="top-nav__inner">
           <div className="top-nav__logo">
             <img src="/logo_prestigio2.png" alt="Fundación Mérito" className="top-nav__logo-img" />
             <span className="top-nav__org-name">PREMIO MÉRITO EMPRESARIAL</span>
           </div>
-          <button
-            type="button"
-            className={`mobile-menu-toggle ${isMobileMenuOpen ? 'is-open' : ''}`}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-          <nav className={`top-nav__links ${isMobileMenuOpen ? 'is-open' : ''}`}>
+          <nav className="top-nav__links">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -229,6 +286,9 @@ function App() {
           </nav>
         </div>
       </header>
+
+      {/* Navbar Mobile - Solo visible en pantallas pequeñas */}
+      <MobileNavbar navLinks={navLinks} onNavClick={handleNavClick} />
 
       <section className="hero" id="inicio">
         <div className="hero__inner">
@@ -372,9 +432,13 @@ function App() {
 
       <footer className="footer">
         <div className="footer__brand">
-          <div className="logo-placeholder" aria-hidden />
+          <img 
+            src="/logo_prestigio2.png" 
+            alt="Prestigio Empresarial" 
+            className="footer__logo"
+          />
           <div>
-            <p>Prestigio Empresarial</p>
+            <p>Mérito Empresarial</p>
             <span>Desarrollado por Soft Tech Solutions 2026</span>
           </div>
         </div>
