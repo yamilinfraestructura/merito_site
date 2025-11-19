@@ -45,7 +45,7 @@ const recognitionHighlights = [
     copy:
       'Cada año elevamos la vara junto a las empresas sanjuaninas que impulsan empleo, innovación y desarrollo sostenible para la provincia.',
     images: [
-      'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1400&q=80',
+      'public/premios1.jpg',
       'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80',
     ],
   },
@@ -417,13 +417,13 @@ function App() {
             <li>San Juan, Argentina</li>
           </ul>
           <div className="contact__social">
-            <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
               Facebook
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
           </div>
