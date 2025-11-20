@@ -12,7 +12,7 @@ const categories = ['Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria']
 
 const companiesByCategory: Record<string, Array<{ name: string; logo: string; url: string }>> = {
   Gastronomía: [
-    { name: 'Restaurante El Buen Sabor', logo: 'https://via.placeholder.com/150x80?text=El+Buen+Sabor', url: 'https://example.com' },
+    { name: 'Restaurante El Sabor', logo: 'https://via.placeholder.com/150x80?text=El+Buen+Sabor', url: 'https://example.com' },
     { name: 'Café Central', logo: 'https://via.placeholder.com/150x80?text=Cafe+Central', url: 'https://example.com' },
     { name: 'La Parrilla del Valle', logo: 'https://via.placeholder.com/150x80?text=Parrilla+Valle', url: 'https://example.com' },
   ],
