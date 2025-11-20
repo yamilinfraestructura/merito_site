@@ -45,18 +45,18 @@ const recognitionHighlights = [
     copy:
       'Cada año elevamos la vara junto a las empresas sanjuaninas que impulsan empleo, innovación y desarrollo sostenible para la provincia.',
     images: [
-      'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80',
-      'public/premios1.jpg',      
+      'https://images.unsplash.com/photo-1497561813398-8fcc7a37b567?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'public/premios1.webp',      
     ],
   },
   {
     title: '¿Por qué lo hacemos?',
-    quote: '“Nuestros Socios Empresarios celebran el reconocimiento”',
+    quote: '"Nuestros Socios Empresarios celebran el reconocimiento"',
     copy:
       'Acompañamos a líderes que inspiran con buenas prácticas, impacto social y visión de futuro. El premio es una plataforma para amplificar su voz.',
     images: [
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=80',
-      'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
+      'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     ],
   },
 ]
@@ -64,9 +64,9 @@ const recognitionHighlights = [
 const partnerMarks = ['FF', 'INPI', 'AE', 'PM', 'RS']
 
 const ceremonyImages = [
-  '/banner1.png',
-  '/banner2.png',
-  '/banner3.png',
+  '/banner1.webp',
+  '/banner2.webp',
+  '/banner3.webp',
 ]
 
 const smoothScrollTo = (target: HTMLElement, duration = 1400) => {
@@ -444,14 +444,14 @@ function App() {
             <li>San Juan, Argentina</li>
           </ul>
           <div className="contact__social">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/premio.merito.empresarial/" target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/p/Premio-Merito-Empresarial-100064126448745/" target="_blank" rel="noopener noreferrer">
               Facebook
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-              LinkedIn
+            <a href="https://x.com/meritoempresa" target="_blank" rel="noopener noreferrer">
+              X
             </a>
           </div>
         </div>
@@ -466,7 +466,7 @@ function App() {
           />
           <div>
             <p>Mérito Empresarial</p>
-            <span>Desarrollado por Soft Tech Solutions 2026</span>
+            <span>Desarrollado por <a href="https://softtech-system.com/" target="_blank" rel="noopener noreferrer">Soft Tech Solutions</a> 2026</span>
           </div>
         </div>
         <nav className="footer__links">
