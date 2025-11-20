@@ -45,8 +45,8 @@ const recognitionHighlights = [
     copy:
       'Cada año elevamos la vara junto a las empresas sanjuaninas que impulsan empleo, innovación y desarrollo sostenible para la provincia.',
     images: [
-      'public/premios1.jpg',
       'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80',
+      'public/premios1.jpg',      
     ],
   },
   {
@@ -305,11 +305,31 @@ function App() {
       {/* 🔥 Trigger que controla el cambio de nav */}
       <div id="nav-trigger" style={{ height: '1px' }}></div>
 
-      <main>
-        <section className="trust">
+      <section className="trust">
           <img src="/inpi_refacto.png" alt="INPI" className="trust__logo" />
         </section>
 
+        {/* Video Excellence Section */}
+        <section className="video-excellence">
+          <video
+            className="video-excellence__video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src="/video_720.webm" type="video/webm" />
+          </video>
+          <div className="video-excellence__overlay"></div>
+          <div className="video-excellence__content">
+            <h2>Hace más de 20 años que premiamos la excelencia</h2>
+          </div>
+        </section>
+
+
+      <main>
+        
         {recognitionHighlights.map((highlight, index) => (
           <section
             key={highlight.title}
@@ -320,6 +340,7 @@ function App() {
               highlightRefs.current[index] = element
             }}
           >
+            
             <div className="highlight__text">
               <p className="highlight__eyebrow">{highlight.title}</p>
               <h2>{highlight.quote}</h2>
@@ -343,6 +364,12 @@ function App() {
             </div>
           </section>
         ))}
+        
+
+        
+
+       
+
 
         <section className="ceremony-banner">
           {ceremonyImages.map((image, idx) => (
