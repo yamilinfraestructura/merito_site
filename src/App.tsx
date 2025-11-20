@@ -306,7 +306,7 @@ function App() {
       <div id="nav-trigger" style={{ height: '1px' }}></div>
 
       <section className="trust">
-          <img src="/inpi_refacto.png" alt="INPI" className="trust__logo" />
+          <img src="/inpi_refacto.png" alt="INPI - Instituto Nacional de la Propiedad Industrial" className="trust__logo" />
         </section>
 
         {/* Video Excellence Section */}
@@ -317,7 +317,8 @@ function App() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
+            poster="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
           >
             <source src="/video_720.webm" type="video/webm" />
           </video>
@@ -353,7 +354,7 @@ function App() {
                 <img
                   key={image}
                   src={image}
-                  alt={highlight.title}
+                  alt={`${highlight.title} - Empresas destacadas ${index === 0 ? '2026' : '2025'}`}
                   loading="lazy"
                   className={activeImages[index] === imageIndex ? 'is-active' : ''}
                 />
@@ -376,7 +377,7 @@ function App() {
             <img
               key={image}
               src={image}
-              alt="Ceremonia de premiación"
+              alt={`Ceremonia de premiación Mérito Empresarial - Acto ${idx + 1}`}
               className={ceremonyImageIndex === idx ? 'is-active' : ''}
             />
           ))}
@@ -413,7 +414,7 @@ function App() {
                 rel="noopener noreferrer"
                 className="categories__company"
               >
-                <img src={company.logo} alt={company.name} />
+                <img src={company.logo} alt={`${company.name} - Empresa premiada en ${activeCategory}`} />
               </a>
             ))}
           </div>

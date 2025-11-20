@@ -188,7 +188,7 @@ button {
 
 @media (max-width: 400px) {
   .mobile-nav__org-name {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     letter-spacing: 0.06em;
   }
   
@@ -959,7 +959,7 @@ main {
   }
 
   .trust__logo {
-    max-width: 140px;
+    max-width: 125px;
     object-fit: cover;
 
   }
