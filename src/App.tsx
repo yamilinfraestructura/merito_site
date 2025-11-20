@@ -46,7 +46,7 @@ const recognitionHighlights = [
       'Cada año elevamos la vara junto a las empresas sanjuaninas que impulsan empleo, innovación y desarrollo sostenible para la provincia.',
     images: [
       'https://images.unsplash.com/photo-1497561813398-8fcc7a37b567?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      'public/premios1.webp',      
+      '/premios1.webp',      
     ],
   },
   {
