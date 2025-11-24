@@ -46,7 +46,7 @@ const recognitionHighlights = [
       'Cada año elevamos la vara junto a las empresas sanjuaninas que impulsan empleo, innovación y desarrollo sostenible para la provincia.',
     images: [
       'https://images.unsplash.com/photo-1497561813398-8fcc7a37b567?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      '/premios1.webp',      
+      '/premios1.webp',
     ],
   },
   {
@@ -113,7 +113,7 @@ function App() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
-    
+
     // Verificar inmediatamente al montar
     checkMobile()
     window.addEventListener('resize', checkMobile)
@@ -178,7 +178,7 @@ function App() {
       document.addEventListener('DOMContentLoaded', handleDOMReady)
       // También intentar inmediatamente por si acaso
       setupObserver()
-      
+
       return () => {
         document.removeEventListener('DOMContentLoaded', handleDOMReady)
         if (timeoutId) clearTimeout(timeoutId)
@@ -306,31 +306,31 @@ function App() {
       <div id="nav-trigger" style={{ height: '1px' }}></div>
 
       <section className="trust">
-          <img src="/inpi_refacto.png" alt="INPI - Instituto Nacional de la Propiedad Industrial" className="trust__logo" />
-        </section>
+        <img src="/inpi_refacto.png" alt="INPI - Instituto Nacional de la Propiedad Industrial" className="trust__logo" />
+      </section>
 
-        {/* Video Excellence Section */}
-        <section className="video-excellence">
-          <video
-            className="video-excellence__video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
-          >
-            <source src="/video_720.webm" type="video/webm" />
-          </video>
-          <div className="video-excellence__overlay"></div>
-          <div className="video-excellence__content">
-            <h2>Hace más de 20 años que premiamos la excelencia</h2>
-          </div>
-        </section>
+      {/* Video Excellence Section */}
+      <section className="video-excellence">
+        <video
+          className="video-excellence__video"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80"
+        >
+          <source src="/video_720.webm" type="video/webm" />
+        </video>
+        <div className="video-excellence__overlay"></div>
+        <div className="video-excellence__content">
+          <h2>Hace más de 20 años que premiamos la excelencia</h2>
+        </div>
+      </section>
 
 
       <main>
-        
+
         {recognitionHighlights.map((highlight, index) => (
           <section
             key={highlight.title}
@@ -341,7 +341,7 @@ function App() {
               highlightRefs.current[index] = element
             }}
           >
-            
+
             <div className="highlight__text">
               <p className="highlight__eyebrow">{highlight.title}</p>
               <h2>{highlight.quote}</h2>
@@ -365,11 +365,11 @@ function App() {
             </div>
           </section>
         ))}
-        
 
-        
 
-       
+
+
+
 
 
         <section className="ceremony-banner">
@@ -432,37 +432,58 @@ function App() {
       </main>
 
       <section className="contact" id="contacto">
-        <div className="contact__card">
-          <p className="contact__eyebrow">Mérito Empresarial 2026</p>
-          <h3>Fundación Mérito</h3>
-          <p>
-            Únete a la red de líderes que transforman la economía sanjuanina
-            con innovación y propósito.
-          </p>
-          <ul>
-            <li>Tel: (0264) 422-2250</li>
-            <li>Email: premioalmerito@merito.com.ar</li>
-            <li>San Juan, Argentina</li>
-          </ul>
-          <div className="contact__social">
-            <a href="https://www.instagram.com/premio.merito.empresarial/" target="_blank" rel="noopener noreferrer">
-              Instagram
-            </a>
-            <a href="https://www.facebook.com/p/Premio-Merito-Empresarial-100064126448745/" target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
-            <a href="https://x.com/meritoempresa" target="_blank" rel="noopener noreferrer">
-              X
-            </a>
+        <div className="contact__grid">
+          <div className="contact__card" style={{ padding: '3rem 2rem' }}>
+            <p className="contact__eyebrow">Mérito Empresarial 2026</p>
+            <h3>Fundación Mérito</h3>
+            <p>
+              Únete a la red de líderes que transforman la economía sanjuanina
+              con innovación y propósito.
+            </p>
+            <ul>
+              <li>Tel: (0264) 422-2250</li>
+              <li>Email: premioalmerito@merito.com.ar</li>
+              <li>San Juan, Argentina</li>
+            </ul>
+            <div className="contact__social">
+              <a href="https://www.instagram.com/premio.merito.empresarial/" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+              <a href="https://www.facebook.com/p/Premio-Merito-Empresarial-100064126448745/" target="_blank" rel="noopener noreferrer">
+                Facebook
+              </a>
+              <a href="https://x.com/meritoempresa" target="_blank" rel="noopener noreferrer">
+                X
+              </a>
+            </div>
+          </div>
+
+          <div className="contact__card contact__card--developer">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+              <img src="/logo_soft.png" alt="Soft Tech Solutions" style={{ width: '60px', height: 'auto' }} />
+              <h3>Soft Tech Solutions</h3>
+            </div>
+            <p>
+              Este sitio ha sido desarrollado por el Equipo de Soft Tech Solutions. Si deseas consultoría sobre diseño, desarrollo de aplicaciones y sistemas informáticos no dudes en contactarnos.
+            </p>
+            <ul>
+              <li><strong>Tel:</strong> +5492645748636</li>
+              <li><strong>Email:</strong> softech.solutions.contact@gmail.com</li>
+            </ul>
+            <div className="contact__social">
+              <a href="https://www.instagram.com/soft_tech_solutions/" target="_blank" rel="noopener noreferrer">
+                Instagram
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       <footer className="footer">
         <div className="footer__brand">
-          <img 
-            src="/logo_prestigio2.png" 
-            alt="Prestigio Empresarial" 
+          <img
+            src="/logo_prestigio2.png"
+            alt="Prestigio Empresarial"
             className="footer__logo"
           />
           <div>
@@ -487,7 +508,7 @@ function App() {
       >
         ↑
       </button>
-    </div>
+    </div >
   )
 }
 
