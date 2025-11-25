@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { MobileNavbar } from './components/MobileNavbar'
+import { VideoModal } from './components/VideoModal'
 
 const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
@@ -96,6 +97,7 @@ function App() {
   const [activeImages, setActiveImages] = useState(recognitionHighlights.map(() => 0))
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [ceremonyImageIndex, setCeremonyImageIndex] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(() => {
     // Inicializar correctamente desde el inicio, incluso en SSR
     if (typeof window !== 'undefined') {
@@ -295,7 +297,11 @@ function App() {
           <p className="hero__eyebrow">Premio provincial a la excelencia</p>
           <h1>Mérito Empresarial 2026</h1>
           <div className="hero__actions">
-            <button className="btn btn--primary">
+            <button className="btn btn--primary" onClick={() => {
+              console.log('Botón presionado - Abriendo modal...')
+              setIsModalOpen(true)
+              console.log('Estado isModalOpen después del click:', true)
+            }}>
               Aprende más sobre el Premio Mérito Empresarial
             </button>
           </div>
@@ -508,6 +514,12 @@ function App() {
       >
         ↑
       </button>
+
+      <VideoModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        videoId="EB9e7EhLQqo"
+      />
     </div >
   )
 }
