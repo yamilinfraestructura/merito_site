@@ -40,8 +40,8 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
 
 const recognitionHighlights = [
   {
-    title: 'Prestigio Empresarial',
-    quote: '“Hace más de 20 años que premiamos la excelencia”',
+    title: 'EXCELENCIA EMPRESARIAL',
+    quote: '"Cuatro ediciones premiando la excelencia Empresarial"',
     copy:
       'Cada año elevamos la vara junto a las empresas sanjuaninas que impulsan empleo, innovación y desarrollo sostenible para la provincia.',
     images: [
@@ -324,7 +324,7 @@ function App() {
         </video>
         <div className="video-excellence__overlay"></div>
         <div className="video-excellence__content">
-          <h2>Hace más de 20 años que premiamos la excelencia</h2>
+          <h2>Máximo reconocimiento Empresarial</h2>
         </div>
       </section>
 
@@ -347,7 +347,7 @@ function App() {
               <h2>{highlight.quote}</h2>
               <p>{highlight.copy}</p>
               <div className="divider" />
-              <span className="highlight__meta">Más de 20 años de historia</span>
+              <span className="highlight__meta">Máximo reconocimiento Empresarial</span>
             </div>
             <div className="highlight__image">
               {highlight.images.map((image, imageIndex) => (
