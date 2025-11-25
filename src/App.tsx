@@ -297,11 +297,7 @@ function App() {
           <p className="hero__eyebrow">Premio provincial a la excelencia</p>
           <h1>Mérito Empresarial 2026</h1>
           <div className="hero__actions">
-            <button className="btn btn--primary" onClick={() => {
-              console.log('Botón presionado - Abriendo modal...')
-              setIsModalOpen(true)
-              console.log('Estado isModalOpen después del click:', true)
-            }}>
+            <button className="btn btn--primary" onClick={() => setIsModalOpen(true)}>
               Aprende más sobre el Premio Mérito Empresarial
             </button>
           </div>

@@ -25,8 +25,6 @@ export function VideoModal({ isOpen, onClose, videoId }: VideoModalProps) {
         }
     }, [isOpen, onClose])
 
-    console.log('VideoModal - isOpen:', isOpen)
-
     if (!isOpen) return null
 
     return (
