@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const categories = ['Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria']
+const categories = ['Minería', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria']
 
 const companiesByCategory: Record<string, Array<{ name: string; logo: string; url: string }>> = {
   Gastronomía: [
@@ -36,6 +36,9 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
     { name: 'Industrias San Juan', logo: 'https://via.placeholder.com/150x80?text=Industrias+SJ', url: 'https://example.com' },
     { name: 'Manufacturas del Valle', logo: 'https://via.placeholder.com/150x80?text=Manufacturas', url: 'https://example.com' },
     { name: 'Tecnología Industrial', logo: 'https://via.placeholder.com/150x80?text=Tec+Industrial', url: 'https://example.com' },
+  ],
+  Minería: [
+    { name: 'Yamana Gold', logo: '/mineria/yamana_logo.webp', url: 'https://yamana2021rd.q4web.com/English/home/default.aspx' },
   ],
 }
 
