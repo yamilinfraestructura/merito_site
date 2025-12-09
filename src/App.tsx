@@ -4,12 +4,12 @@ import { VideoModal } from './components/VideoModal'
 
 const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
-  { label: 'Nuestros Socios', href: '#socios' },
-  { label: 'Premiados', href: '#premiados' },
+  { label: 'Reconocimiento', href: '#socios' },
+  { label: 'Empresas', href: '#premiados' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const categories = ['Minería', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria']
+const categories = ['Minería', 'Automotores', 'Comunicaciones', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria', 'Vinos', 'Transporte', 'Regalos', 'Recreación', 'Alimentos', 'Construcción', 'Empresas y Negocios', 'Eventos', 'Hogar', 'Indumentaria', 'Educación']
 
 const companiesByCategory: Record<string, Array<{ name: string; logo: string; url: string }>> = {
   Gastronomía: [
@@ -23,6 +23,7 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
     { name: 'Boutique Moda', logo: 'https://via.placeholder.com/150x80?text=Boutique+Moda', url: 'https://example.com' },
   ],
   Salud: [
+    { name: 'Clínica Santa Clara', logo: '/salud/santaclara_logo.webp', url: 'https://redsantaclara.com.ar/clinica-santa-clara-san-juan/' },
     { name: 'Clínica San Juan', logo: 'https://via.placeholder.com/150x80?text=Clinica+San+Juan', url: 'https://example.com' },
     { name: 'Laboratorio Médico', logo: 'https://via.placeholder.com/150x80?text=Lab+Medico', url: 'https://example.com' },
     { name: 'Farmacia Central', logo: 'https://via.placeholder.com/150x80?text=Farmacia+Central', url: 'https://example.com' },
@@ -39,7 +40,26 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
   ],
   Minería: [
     { name: 'Yamana Gold', logo: '/mineria/yamana_logo.webp', url: 'https://yamana2021rd.q4web.com/English/home/default.aspx' },
+    { name: 'Acer', logo: '/mineria/acer_logo.webp', url: 'https://acersrl.com/' },
   ],
+  Automotores: [
+    { name: 'F1 Neumáticos', logo: '/automotores/F1_logo.webp', url: 'https://f1-neumaticos2.webnode.page/' },
+    { name: 'Motores Balderramo', logo: '/automotores/motores_balderramo_logo.webp', url: 'https://redbalderramo.com/' },
+  ],
+  Comunicaciones: [
+    { name: '101.5 Radio del Sur', logo: '/comunicacion/101_logo.webp', url: 'https://www.delsurdiario.com/radio-vivo/' },
+  ],
+  Vinos: [],
+  Transporte: [],
+  Regalos: [],
+  Recreación: [],
+  Alimentos: [],
+  Construcción: [],
+  'Empresas y Negocios': [],
+  Eventos: [],
+  Hogar: [],
+  Indumentaria: [],
+  Educación: [],
 }
 
 const recognitionHighlights = [
@@ -55,9 +75,9 @@ const recognitionHighlights = [
   },
   {
     title: '¿Por qué lo hacemos?',
-    quote: '"Nuestros Socios Empresarios celebran el reconocimiento"',
+    quote: '"Los Empresarios Celebran el Reconocimiento en la Cena de Gala"',
     copy:
-      'Acompañamos a líderes que inspiran con buenas prácticas, impacto social y visión de futuro. El premio es una plataforma para amplificar su voz.',
+      'Acompañamos a líderes que inspiran con buenas prácticas, impacto social y visión de futuro. El premio es una plataforma para amplificar su voz al esfuerzo, trabajo y dedicación.',
     images: [
       'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=80',
       'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -298,7 +318,7 @@ function App() {
       <section className="hero" id="inicio">
         <div className="hero__inner">
           <p className="hero__eyebrow">Premio provincial a la excelencia</p>
-          <h1>Mérito Empresarial 2026</h1>
+          <h1 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.2rem)' }}>Mérito Empresarial 2026 - 2027</h1>
           <div className="hero__actions">
             <button className="btn btn--primary" onClick={() => setIsModalOpen(true)}>
               Aprende más sobre el Premio Mérito Empresarial
