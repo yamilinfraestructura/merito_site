@@ -1687,3 +1687,37 @@ main {
 .video-modal-content::-webkit-scrollbar-thumb:hover {
   background: #b8883a;
 }
+
+/* Partner logos styling */
+.partners {
+  background: #e8e8e8 !important;
+  padding: 2rem !important;
+}
+
+.partners__logo {
+  display: inline-block;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.partners__logo:hover {
+  transform: translateY(-2px);
+}
+
+.partners__logo img {
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .partners__logo img {
+    max-width: 100px;
+    max-height: 50px;
+  }
+}

@@ -1,0 +1,48 @@
+/* Partner logos styling - Updated sizes */
+.partners {
+  background: #e8e8e8 !important;
+  padding: 2rem !important;
+}
+
+.partners__logo {
+  display: inline-block;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.partners__logo:hover {
+  transform: translateY(-2px);
+}
+
+/* Estudiarte logo gets dark background */
+.partners__logo:has(img[src*='estudiarte']) {
+  background: #4a4a4a;
+  padding: 1.0rem;
+}
+
+.partners__logo:has(img[src*='estudiarte']) img {
+  max-height: 80px;
+}
+
+.partners__logo img {
+  max-width: 180px;
+  max-height: 90px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .partners__logo img {
+    max-width: 140px;
+    max-height: 70px;
+  }
+}
+
+/* Estudiarte logo in Categories section */
+.categories__company:has(img[src*='estudiarte']) {
+  background: #4a4a4a;
+}

@@ -9,7 +9,7 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const categories = ['Minería', 'Automotores', 'Comunicaciones', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria', 'Vinos', 'Transporte', 'Regalos', 'Recreación', 'Alimentos', 'Construcción', 'Empresas y Negocios', 'Eventos', 'Hogar', 'Indumentaria', 'Educación']
+const categories = ['Minería', 'Automotores', 'Comunicaciones', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria', 'Vinos y Licores', 'Transporte', 'Regalos', 'Recreación', 'Alimentos', 'Construcción', 'Empresas y Negocios', 'Eventos', 'Hogar', 'Indumentaria', 'Educación']
 
 const companiesByCategory: Record<string, Array<{ name: string; logo: string; url: string }>> = {
   Gastronomía: [
@@ -48,17 +48,37 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
   ],
   Comunicaciones: [
     { name: '101.5 Radio del Sur', logo: '/comunicacion/101_logo.webp', url: 'https://www.delsurdiario.com/radio-vivo/' },
+    { name: 'Canal 8 San Juan', logo: '/comunicacion/canal8_logo.webp', url: 'https://www.canal8sanjuan.com.ar/' },
   ],
-  Vinos: [],
-  Transporte: [],
+  'Vinos y Licores': [
+    { name: 'Clapton Café y Vinos', logo: '/vinos/claptom_logo.webp', url: 'https://claptoncafeyvinos.shop/' },
+    { name: 'La Pampa Gin', logo: '/vinos/lapampa_logo.webp', url: 'https://www.facebook.com/p/La-Pampa-Gin-100089682007871/' },
+  ],
+  Transporte: [
+    { name: '20 de Junio', logo: '/transporte/20junio_logo.webp', url: 'https://la20.com.ar/' },
+    { name: 'Del Bono', logo: '/transporte/delbono_logo.webp', url: 'https://example.com' },
+    { name: 'Puertas de Cuyo', logo: '/transporte/puertasdecuyo_logo.webp', url: 'https://www.instagram.com/puertasdecuyo.srl/' },
+  ],
   Regalos: [],
   Recreación: [],
-  Alimentos: [],
+  Alimentos: [
+    { name: 'Frigorífico y Avícola Soles', logo: '/alimentos/soles_logo.webp', url: 'https://www.instagram.com/frigorificoyavicolasoles/?hl=es-la' },
+    { name: 'Rey del Copetín', logo: '/alimentos/rey_copetin_logo.webp', url: 'https://reydelcopetin.com.ar/' },
+    { name: 'Diversa Mayorista', logo: '/alimentos/diversa_logo.webp', url: 'https://www.diversamayorista.com.ar/?srsltid=AfmBOootlEXjUFMdaq_BZvalnRIPIuXg3WLjMFrrCuTsrKMGDDqikNNb' },
+    { name: 'Miriam', logo: '/alimentos/miriam_logo.webp', url: 'https://www.instagram.com/myriamsanjuanarg/?hl=es' },
+    { name: 'América Mayorista', logo: '/alimentos/america_mayorista_logo.webp', url: 'https://www.americamayorista.com/' },
+    { name: 'Cabral Mayorista', logo: '/alimentos/cabral_logo.webp', url: 'https://www.instagram.com/cabralmayorista/?hl=es' },
+  ],
   Construcción: [],
   'Empresas y Negocios': [],
-  Eventos: [],
+  Eventos: [
+    { name: 'Estudiarte Creativos', logo: '/eventos/estudiarte_logo.webp', url: 'https://www.estudiartecreativos.com/' },
+    { name: 'MOA Eventos', logo: '/eventos/moa_logo.webp', url: 'https://www.instagram.com/moa_eventos/?hl=es' },
+  ],
   Hogar: [],
-  Indumentaria: [],
+  Indumentaria: [
+    { name: 'Girasol', logo: '/indumentaria/girasol_logo.webp', url: 'https://example.com' },
+  ],
   Educación: [],
 }
 
@@ -85,7 +105,10 @@ const recognitionHighlights = [
   },
 ]
 
-const partnerMarks = ['FF', 'INPI', 'AE', 'PM', 'RS']
+const partnerLogos = [
+  { name: 'Soft Tech Solutions', logo: '/logo_soft.png', url: 'https://www.instagram.com/soft_tech_solutions?igsh=MTdyejZzZG0wenF1bQ%3D%3D' },
+  { name: 'Estudiarte Creativos', logo: '/eventos/estudiarte_logo.webp', url: 'https://www.instagram.com/estudiartecreativos/' },
+]
 
 const ceremonyImages = [
   '/banner1.webp',
@@ -448,8 +471,16 @@ function App() {
         <section className="partners">
           <p className="partners__eyebrow">Respaldado por</p>
           <div className="partners__marks">
-            {partnerMarks.map((mark) => (
-              <span key={mark}>{mark}</span>
+            {partnerLogos.map((partner) => (
+              <a
+                key={partner.name}
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="partners__logo"
+              >
+                <img src={partner.logo} alt={partner.name} />
+              </a>
             ))}
           </div>
         </section>
