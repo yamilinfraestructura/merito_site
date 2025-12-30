@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { MobileNavbar } from './components/MobileNavbar'
 import { VideoModal } from './components/VideoModal'
+import { CookieBanner } from './components/CookieBanner'
+import { PoliticaCookies } from './components/PoliticaCookies'
 
 const navLinks = [
   { label: 'Nosotros', href: '#nosotros' },
@@ -144,6 +146,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState(categories[0])
   const [ceremonyImageIndex, setCeremonyImageIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [showCookiePolicy, setShowCookiePolicy] = useState(false)
   const [isMobile, setIsMobile] = useState(() => {
     // Inicializar correctamente desde el inicio, incluso en SSR
     if (typeof window !== 'undefined') {
@@ -307,9 +310,76 @@ function App() {
     href: string,
   ) => {
     event.preventDefault()
+
+    // Handle cookie policy link specially
+    if (href === '#politica-cookies') {
+      setShowCookiePolicy(true)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
     const target = document.querySelector<HTMLElement>(href)
     if (!target) return
     smoothScrollTo(target, 1500)
+  }
+
+  // Effect to handle cookie policy visibility and hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      if (window.location.hash === '#politica-cookies') {
+        setShowCookiePolicy(true)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else {
+        setShowCookiePolicy(false)
+      }
+    }
+
+    handleHashChange() // Check on mount
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  // Render cookie policy page if active
+  if (showCookiePolicy) {
+    return (
+      <div className="site-shell">
+        <header className="top-nav top-nav--desktop top-nav--compact">
+          <div className="top-nav__inner">
+            <div className="top-nav__logo">
+              <img src="/logo_prestigio2.png" alt="Fundación Mérito" className="top-nav__logo-img" />
+              <span className="top-nav__org-name">PREMIO MÉRITO EMPRESARIAL</span>
+            </div>
+            <nav className="top-nav__links">
+              <a
+                href="#inicio"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setShowCookiePolicy(false)
+                  window.location.hash = ''
+                }}
+              >
+                Volver al Inicio
+              </a>
+            </nav>
+          </div>
+        </header>
+        <MobileNavbar
+          navLinks={[
+            {
+              label: 'Volver al Inicio',
+              href: '#inicio',
+            },
+          ]}
+          onNavClick={(e) => {
+            e.preventDefault()
+            setShowCookiePolicy(false)
+            window.location.hash = ''
+          }}
+        />
+        <PoliticaCookies />
+        <CookieBanner />
+      </div>
+    )
   }
 
   return (
@@ -553,6 +623,12 @@ function App() {
               {link.label}
             </a>
           ))}
+          <a
+            href="#politica-cookies"
+            onClick={(e) => handleNavClick(e, '#politica-cookies')}
+          >
+            Política de Cookies
+          </a>
         </nav>
       </footer>
 
@@ -570,6 +646,8 @@ function App() {
         onClose={() => setIsModalOpen(false)}
         videoId="EB9e7EhLQqo"
       />
+
+      <CookieBanner />
     </div >
   )
 }

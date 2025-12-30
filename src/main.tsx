@@ -4,6 +4,7 @@ import App from './App'
 import './styles/global.css'
 import './styles/modal.css'
 import './styles/partner-logos.css'
+import './styles/cookies.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
