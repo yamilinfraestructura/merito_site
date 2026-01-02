@@ -19,11 +19,12 @@
 /* Estudiarte logo gets dark background */
 .partners__logo:has(img[src*='estudiarte']) {
   background: #4a4a4a;
-  padding: 1.0rem;
+  padding: 1.5rem;
 }
 
 .partners__logo:has(img[src*='estudiarte']) img {
-  max-height: 80px;
+  max-width: 220px;
+  max-height: 110px;
 }
 
 .partners__logo img {
@@ -39,6 +40,11 @@
   .partners__logo img {
     max-width: 140px;
     max-height: 70px;
+  }
+
+  .partners__logo:has(img[src*='estudiarte']) img {
+    max-width: 180px;
+    max-height: 90px;
   }
 }
 
