@@ -11,7 +11,7 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const categories = ['Minería', 'Automotores', 'Comunicaciones', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria', 'Vinos y Licores', 'Transporte', 'Regalos', 'Recreación', 'Alimentos', 'Construcción', 'Empresas y Negocios', 'Eventos', 'Hogar', 'Indumentaria', 'Educación']
+const categories = ['Minería', 'Automotores', 'Comunicaciones', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria', 'Vinos y Licores', 'Transporte', 'Regalos', 'Recreación', 'Alimentos', 'Construcción', 'Empresas y Negocios', 'Eventos', 'Hogar', 'Indumentaria', 'Educación', 'Turismo']
 
 const companiesByCategory: Record<string, Array<{ name: string; logo: string; url: string }>> = {
   Gastronomía: [
@@ -20,9 +20,11 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
     { name: 'La Parrilla del Valle', logo: 'https://via.placeholder.com/150x80?text=Parrilla+Valle', url: 'https://example.com' },
   ],
   Comercio: [
-    { name: 'Supermercado San Juan', logo: 'https://via.placeholder.com/150x80?text=Super+San+Juan', url: 'https://example.com' },
-    { name: 'Tienda El Centro', logo: 'https://via.placeholder.com/150x80?text=Tienda+Centro', url: 'https://example.com' },
-    { name: 'Boutique Moda', logo: 'https://via.placeholder.com/150x80?text=Boutique+Moda', url: 'https://example.com' },
+    { name: 'Grupo A2', logo: '/comercio/A2_logo.webp', url: 'https://www.instagram.com/grupoa2.mdp/' },
+    { name: 'Zini & Cía', logo: '/comercio/zini_cia_logo.webp', url: 'http://mariozini.com/site/' },
+    { name: 'Hidrotécnica', logo: '/comercio/hidrotecnica_logo.webp', url: 'https://www.facebook.com/hidrotecnica.sanjuan/' },
+    { name: 'Oleohidráulica Eugenio Sulic', logo: '/comercio/oleohidraulica_logo.webp', url: 'https://www.facebook.com/OleohidraulicaEugenioSulic/' },
+    { name: 'G&A Eléctricos', logo: '/comercio/gya_electricos_logo.webp', url: 'https://www.facebook.com/gyamatelecferrelec/' },
   ],
   Salud: [
     { name: 'Clínica Santa Clara', logo: '/salud/santaclara_logo.webp', url: 'https://redsantaclara.com.ar/clinica-santa-clara-san-juan/' },
@@ -36,9 +38,7 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
     { name: 'Estética Moderna', logo: 'https://via.placeholder.com/150x80?text=Estetica+Moderna', url: 'https://example.com' },
   ],
   Industria: [
-    { name: 'Industrias San Juan', logo: 'https://via.placeholder.com/150x80?text=Industrias+SJ', url: 'https://example.com' },
-    { name: 'Manufacturas del Valle', logo: 'https://via.placeholder.com/150x80?text=Manufacturas', url: 'https://example.com' },
-    { name: 'Tecnología Industrial', logo: 'https://via.placeholder.com/150x80?text=Tec+Industrial', url: 'https://example.com' },
+    { name: 'Industrias Reina', logo: '/industria/industria_reina_logo.webp', url: 'https://www.instagram.com/industriasreina/' },
   ],
   Minería: [
     { name: 'Yamana Gold', logo: '/mineria/yamana_logo.webp', url: 'https://yamana2021rd.q4web.com/English/home/default.aspx' },
@@ -59,29 +59,40 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
   Transporte: [
     { name: '20 de Junio', logo: '/transporte/20junio_logo.webp', url: 'https://la20.com.ar/' },
     { name: 'Del Bono', logo: '/transporte/delbono_logo.webp', url: 'https://example.com' },
+    { name: 'Del Bono Remis', logo: '/transporte/delbono_remis_logo.webp', url: 'https://www.facebook.com/remisdelbono/' },
     { name: 'Puertas de Cuyo', logo: '/transporte/puertasdecuyo_logo.webp', url: 'https://www.instagram.com/puertasdecuyo.srl/' },
   ],
-  Regalos: [],
+  Regalos: [
+    { name: 'Diversa Mayorista', logo: '/regalos/diversa_logo.webp', url: 'https://www.diversamayorista.com.ar/?srsltid=AfmBOootlEXjUFMdaq_BZvalnRIPIuXg3WLjMFrrCuTsrKMGDDqikNNb' },
+  ],
   Recreación: [],
   Alimentos: [
     { name: 'Frigorífico y Avícola Soles', logo: '/alimentos/soles_logo.webp', url: 'https://www.instagram.com/frigorificoyavicolasoles/?hl=es-la' },
     { name: 'Rey del Copetín', logo: '/alimentos/rey_copetin_logo.webp', url: 'https://reydelcopetin.com.ar/' },
-    { name: 'Diversa Mayorista', logo: '/alimentos/diversa_logo.webp', url: 'https://www.diversamayorista.com.ar/?srsltid=AfmBOootlEXjUFMdaq_BZvalnRIPIuXg3WLjMFrrCuTsrKMGDDqikNNb' },
     { name: 'Miriam', logo: '/alimentos/miriam_logo.webp', url: 'https://www.instagram.com/myriamsanjuanarg/?hl=es' },
     { name: 'América Mayorista', logo: '/alimentos/america_mayorista_logo.webp', url: 'https://www.americamayorista.com/' },
     { name: 'Cabral Mayorista', logo: '/alimentos/cabral_logo.webp', url: 'https://www.instagram.com/cabralmayorista/?hl=es' },
   ],
-  Construcción: [],
+  Construcción: [
+    { name: 'MP Construcciones', logo: '/construccion/mp_logo.webp', url: '#' },
+  ],
   'Empresas y Negocios': [],
   Eventos: [
     { name: 'Estudiarte Creativos', logo: '/eventos/estudiarte_logo.webp', url: 'https://www.estudiartecreativos.com/' },
     { name: 'MOA Eventos', logo: '/eventos/moa_logo.webp', url: 'https://www.instagram.com/moa_eventos/?hl=es' },
   ],
-  Hogar: [],
+  Hogar: [
+    { name: 'Ambiente', logo: '/hogar/ambiente_logo.webp', url: '#' },
+  ],
   Indumentaria: [
     { name: 'Girasol', logo: '/indumentaria/girasol_logo.webp', url: 'https://example.com' },
   ],
-  Educación: [],
+  Educación: [
+    { name: 'Instituto Aconcagua', logo: '/educacion/aconcagua_logo.webp', url: 'https://institutoaconcagua.com.ar/' },
+  ],
+  Turismo: [
+    { name: 'Turismo Bacur', logo: '/turismo/bacur_logo.webp', url: 'http://turismobacur.tur.ar/' },
+  ],
 }
 
 const recognitionHighlights = [
@@ -567,7 +578,7 @@ function App() {
               con innovación y propósito.
             </p>
             <ul>
-              <li>Tel: (0264) 422-2250</li>
+              <li>Tel: (0264)155656261</li>
               <li>Email: premioalmerito@merito.com.ar</li>
               <li>San Juan, Argentina</li>
             </ul>
