@@ -11,13 +11,14 @@ const navLinks = [
   { label: 'Contacto', href: '#contacto' },
 ]
 
-const categories = ['Minería', 'Automotores', 'Comunicaciones', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria', 'Vinos y Licores', 'Transporte', 'Regalos', 'Recreación', 'Alimentos', 'Construcción', 'Empresas y Negocios', 'Eventos', 'Hogar', 'Indumentaria', 'Educación', 'Turismo']
+const categories = ['Minería', 'Automotores', 'Comunicaciones', 'Seguridad', 'Gastronomía', 'Comercio', 'Salud', 'Belleza', 'Industria', 'Vinos y Licores', 'Transporte', 'Regalos', 'Recreación', 'Alimentos', 'Construcción', 'Empresas y Negocios', 'Eventos', 'Hogar', 'Indumentaria', 'Educación', 'Turismo']
 
 const companiesByCategory: Record<string, Array<{ name: string; logo: string; url: string }>> = {
   Gastronomía: [
     { name: 'Restaurante El Sabor', logo: 'https://via.placeholder.com/150x80?text=El+Buen+Sabor', url: 'https://example.com' },
     { name: 'Café Central', logo: 'https://via.placeholder.com/150x80?text=Cafe+Central', url: 'https://example.com' },
     { name: 'La Parrilla del Valle', logo: 'https://via.placeholder.com/150x80?text=Parrilla+Valle', url: 'https://example.com' },
+    { name: 'Panadería Emi', logo: '/gastronomia/panaderia_emi_logo.webp', url: 'https://www.instagram.com/panaderiaemilen/?hl=es-la' },
   ],
   Comercio: [
     { name: 'Grupo A2', logo: '/comercio/A2_logo.webp', url: 'https://www.instagram.com/grupoa2.mdp/' },
@@ -51,6 +52,10 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
   Comunicaciones: [
     { name: '101.5 Radio del Sur', logo: '/comunicacion/101_logo.webp', url: 'https://www.delsurdiario.com/radio-vivo/' },
     { name: 'Canal 8 San Juan', logo: '/comunicacion/canal8_logo.webp', url: 'https://www.canal8sanjuan.com.ar/' },
+    { name: 'Canal 13 San Juan (Delsur TV)', logo: '/comunicacion/delsur_logo.webp', url: 'https://www.instagram.com/delsurtv/' },
+  ],
+  Seguridad: [
+    { name: 'Huarpe Seguridad', logo: '/seguridad/huarpe_logo.webp', url: 'https://huarpeseguridad.com/oficial/?url=index.php' },
   ],
   'Vinos y Licores': [
     { name: 'Clapton Café y Vinos', logo: '/vinos/claptom_logo.webp', url: 'https://claptoncafeyvinos.shop/' },
@@ -80,6 +85,8 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
   Eventos: [
     { name: 'Estudiarte Creativos', logo: '/eventos/estudiarte_logo.webp', url: 'https://www.estudiartecreativos.com/' },
     { name: 'MOA Eventos', logo: '/eventos/moa_logo.webp', url: 'https://www.instagram.com/moa_eventos/?hl=es' },
+    { name: 'De Colores', logo: '/eventos/de_colores_logo.webp', url: 'https://example.com' },
+    { name: 'Fernando Alamino Eventos', logo: '/eventos/fernando_logo.webp', url: 'https://www.instagram.com/explore/locations/411571012269889/fer-alamino-eventos-rental-viajes/' },
   ],
   Hogar: [
     { name: 'Ambiente', logo: '/hogar/ambiente_logo.webp', url: '#' },
@@ -88,6 +95,7 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
     { name: 'Girasol', logo: '/indumentaria/girasol_logo.webp', url: 'https://example.com' },
   ],
   Educación: [
+    { name: 'Universidad Nacional de San Juan', logo: '/educacion/universidad_logo.webp', url: 'https://www.unsj.edu.ar/' },
     { name: 'Instituto Aconcagua', logo: '/educacion/aconcagua_logo.webp', url: 'https://institutoaconcagua.com.ar/' },
   ],
   Turismo: [
@@ -121,6 +129,7 @@ const recognitionHighlights = [
 const partnerLogos = [
   { name: 'Soft Tech Solutions', logo: '/logo_soft.png', url: 'https://www.instagram.com/soft_tech_solutions?igsh=MTdyejZzZG0wenF1bQ%3D%3D' },
   { name: 'Estudiarte Creativos', logo: '/eventos/estudiarte_logo.webp', url: 'https://www.instagram.com/estudiartecreativos/' },
+  { name: 'Universidad Nacional de San Juan', logo: '/educacion/universidad_logo.webp', url: 'https://www.unsj.edu.ar/' },
 ]
 
 const ceremonyImages = [
