@@ -40,6 +40,7 @@ const companiesByCategory: Record<string, Array<{ name: string; logo: string; ur
   ],
   Industria: [
     { name: 'Industrias Reina', logo: '/industria/industria_reina_logo.webp', url: 'https://www.instagram.com/industriasreina/' },
+    { name: 'Maquinarias Ya Hoy', logo: '/industria/yahoy_logo.jpg', url: 'https://www.instagram.com/maquinariasya.hoy?igsh=MWtxa29kNmNxemkxbg%3D%3D' },
   ],
   Minería: [
     { name: 'Yamana Gold', logo: '/mineria/yamana_logo.webp', url: 'https://yamana2021rd.q4web.com/English/home/default.aspx' },
@@ -497,9 +498,7 @@ function App() {
                   className={activeImages[index] === imageIndex ? 'is-active' : ''}
                 />
               ))}
-              <span className="caption">
-                Colaboradores distinguidos — {index === 0 ? '2026' : '2025'}
-              </span>
+
             </div>
           </section>
         ))}
@@ -664,7 +663,7 @@ function App() {
       <VideoModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        videoId="EB9e7EhLQqo"
+        videoId="wMpaZBXYbIc"
       />
 
       <CookieBanner />
